@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
@@ -13,17 +13,16 @@ const PuzzlePage = () => {
   const [token1, setToken1] = useState('');
   const navigate = useNavigate();
 
-  const MINIMUM_CLICK_COUNT = calculateMinimumClicks();
+  const MINIMUM_CLICK_COUNT = useMemo(() => calculateMinimumClicks(), []);
 
   useEffect(() => {
     localStorage.setItem('token1', token1);
   }, [token1]);
 
   const Pagess = () => {
-  setToken1('345');
-  window.location.href = 'https://sdc-jwt.vercel.app';
-};
-
+    setToken1('345');
+    window.location.href = 'https://sdc-jwt.vercel.app';
+  };
 
   const checkPuzzleAnswer = () => {
     const userInput = puzzleAnswer.trim();
@@ -99,7 +98,7 @@ const PuzzlePage = () => {
           <FavoriteIcon />
         </div>
       </div>
-    </div>  
+    </div>
   );
 };
 

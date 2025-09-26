@@ -21,7 +21,7 @@ const PuzzlePage = () => {
 
   const Pagess = () => {
     setToken1('345');
-    window.location.href = 'https://sdc-jwt.vercel.app';
+    window.location.href = 'https://peppy-smakager-0332be.netlify.app/';
   };
 
   const checkPuzzleAnswer = () => {
